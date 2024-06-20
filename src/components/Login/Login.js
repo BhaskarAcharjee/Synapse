@@ -134,9 +134,9 @@ function Login() {
           <div className="login-button google" onClick={handleGoogleSignIn}>
             <GoogleOutlined /> Sign In with Google
           </div>
-          <div className="login-button facebook" onClick={handleFacebookSignIn}>
+          {/* <div className="login-button facebook" onClick={handleFacebookSignIn}>
             <FacebookOutlined /> Sign In with Facebook
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

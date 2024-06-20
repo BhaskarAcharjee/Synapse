@@ -1,48 +1,66 @@
+/* Login Page */
+#login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #6f86d6, #48c6ef);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
 #login-card {
   background: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 h2 {
-  color: #333;
+  font-size: 28px;
   margin-bottom: 20px;
+  color: #444;
 }
 
 h3 {
-  color: #555;
+  font-size: 22px;
   margin-bottom: 20px;
+  color: #666;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 input {
   margin-bottom: 15px;
-  padding: 10px;
+  padding: 12px 15px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
 button {
-  padding: 10px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 16px;
 }
 
-.login-button {
+.login-button, .signup-button {
   background-color: #1890ff;
   color: white;
+  transition: background-color 0.3s;
 }
 
-.signup-button {
-  background-color: #52c41a;
-  color: white;
+.login-button:hover, .signup-button:hover {
+  background-color: #096dd9;
 }
 
 .social-login-buttons {
@@ -54,23 +72,39 @@ button {
   align-items: center;
   justify-content: center;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   margin-bottom: 10px;
   cursor: pointer;
+  gap: 8px;
+  transition: background-color 0.3s;
 }
 
 .social-login-buttons .login-button.google {
   background-color: #db4437;
-  color: white;
 }
 
 .social-login-buttons .login-button.facebook {
   background-color: #3b5998;
-  color: white;
+}
+
+.social-login-buttons .login-button.google:hover {
+  background-color: #c33c2f;
+}
+
+.social-login-buttons .login-button.facebook:hover {
+  background-color: #2d4373;
 }
 
 .link {
   color: #1890ff;
   cursor: pointer;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #096dd9;
+}
+
+p {
+  font-size: 14px;
 }
