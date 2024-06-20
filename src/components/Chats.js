@@ -1,11 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
-
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { ChatEngine } from "react-chat-engine";
 
 import { useAuth } from "../contexts/AuthContext";
-
 import { auth } from "../firebase";
 
 export default function Chats() {
@@ -43,27 +41,26 @@ export default function Chats() {
             "user-secret": user.uid,
           },
         })
-
         .then(() => setLoading(false))
-
-        .catch((e) => {
+        .catch(async (e) => {
           let formdata = new FormData();
           formdata.append("email", user.email);
           formdata.append("username", user.email);
           formdata.append("secret", user.uid);
 
-          getFile(user.photoURL).then((avatar) => {
+          if (user.photoURL) {
+            const avatar = await getFile(user.photoURL);
             formdata.append("avatar", avatar, avatar.name);
+          }
 
-            axios
-              .post("https://api.chatengine.io/users/", formdata, {
-                headers: {
-                  "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY,
-                },
-              })
-              .then(() => setLoading(false))
-              .catch((e) => console.log("e", e.response));
-          });
+          axios
+            .post("https://api.chatengine.io/users/", formdata, {
+              headers: {
+                "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY,
+              },
+            })
+            .then(() => setLoading(false))
+            .catch((e) => console.log("e", e.response));
         });
       // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     }
